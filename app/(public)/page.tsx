@@ -17,8 +17,8 @@ export default function login() {
   const router = useRouter()
 
   const loginSchema = z.object({
-    email: z.string().email("Email invalido"),
-    password: z.string().min(3, "Senha invalida")
+    email: z.string().email("E-mail inválido."),
+    password: z.string().min(3, "Senha invalida.")
   })
 
   type LoginSchema = z.infer<typeof loginSchema>
@@ -38,7 +38,7 @@ export default function login() {
       console.log(data)
       reset()
       
-      router.replace("/pescador")
+      router.replace("/home")
     } catch (error) {
       console.error(error)
       setErroLogin("Não foi possível entrar. Verifique suas credenciais.");

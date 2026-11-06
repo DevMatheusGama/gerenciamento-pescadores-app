@@ -4,7 +4,7 @@ export function middleware(request: NextRequest) {
     const token = request.cookies.get("access_token")?.value
     const pathname = request.nextUrl.pathname
 
-    const privateRoutes = ['/cadastrar', '/pescador']
+    const privateRoutes = ['/cadastrar', '/pescador', '/home']
     const isPrivateRoute = privateRoutes.some(
         (route) => 
             pathname === route || pathname.startsWith(`${route}/`)
@@ -15,7 +15,7 @@ export function middleware(request: NextRequest) {
     }
 
     if (token && pathname === '/') {
-        return NextResponse.redirect(new URL('/pescador', request.url))
+        return NextResponse.redirect(new URL('/home', request.url))
     }
 
     return NextResponse.next()

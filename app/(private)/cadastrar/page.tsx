@@ -1,4 +1,4 @@
-export default function cadastrarPescador() {
+export default function cadastrarPage() {
     return (
         <div>
             cadastrar pescador page
